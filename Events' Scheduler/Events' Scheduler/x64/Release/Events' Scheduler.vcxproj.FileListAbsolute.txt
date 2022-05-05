@@ -1,0 +1,7 @@
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\x64\Release\Events' Scheduler.vcxproj.AssemblyReference.cache
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\x64\Release\Events' Scheduler.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\x64\Release\EventsScheduler.LoginForm.resources
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\x64\Release\Events' Scheduler.vcxproj.GenerateResource.cache
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\x64\Release\EventsScheduler.MainForm.resources
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\x64\Release\EventsScheduler.AddEventForm.resources
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\x64\Release\EventsScheduler.UpdateEventForm.resources

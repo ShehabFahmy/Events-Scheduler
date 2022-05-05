@@ -1,0 +1,62 @@
+﻿  LoginForm.cpp
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\LoginForm.h(190,44): warning C4566: character represented by universal-character-name '\u25CF' cannot be represented in the current code page (1252)
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\LoginForm.h(385,52): warning C4566: character represented by universal-character-name '\u25CF' cannot be represented in the current code page (1252)
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\LoginForm.h(397,53): warning C4566: character represented by universal-character-name '\u25CF' cannot be represented in the current code page (1252)
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(587,58): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(588,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(589,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(602,51): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(628,58): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(629,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(630,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(635,51): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  MainForm.cpp
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\LoginForm.h(190,44): warning C4566: character represented by universal-character-name '\u25CF' cannot be represented in the current code page (1252)
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\LoginForm.h(385,52): warning C4566: character represented by universal-character-name '\u25CF' cannot be represented in the current code page (1252)
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\LoginForm.h(397,53): warning C4566: character represented by universal-character-name '\u25CF' cannot be represented in the current code page (1252)
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(587,58): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(588,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(589,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(602,51): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(628,58): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(629,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(630,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(635,51): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  StartupForm.cpp
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\LoginForm.h(190,44): warning C4566: character represented by universal-character-name '\u25CF' cannot be represented in the current code page (1252)
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\LoginForm.h(385,52): warning C4566: character represented by universal-character-name '\u25CF' cannot be represented in the current code page (1252)
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\LoginForm.h(397,53): warning C4566: character represented by universal-character-name '\u25CF' cannot be represented in the current code page (1252)
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(587,58): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(588,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(589,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(602,51): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(628,58): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(629,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(630,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\sheha\source\repos\Events' Scheduler\Events' Scheduler\MainForm.h(635,51): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  AddEventForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+mysqlcppconn-static.lib(mysql_art_resultset.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_art_resultset.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_connection.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_connection.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_util.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_util.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_art_rset_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_art_rset_metadata.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_uri.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_uri.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_metadata.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_warning.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_warning.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_prepared_statement.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_prepared_statement.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_statement.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_statement.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_debug.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_debug.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_resultbind.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_resultbind.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_ps_resultset.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_ps_resultset.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_ps_resultset_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_ps_resultset_metadata.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_parameter_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_parameter_metadata.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_resultset.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_resultset.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_resultset_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_resultset_metadata.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+     Creating library C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\Events' Scheduler.lib and object C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\Events' Scheduler.exp
+mysqlcppconn-static.lib(mysql_driver.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_driver.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_native_driver_wrapper.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_native_driver_wrapper.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_client_api.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_client_api.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_native_connection_wrapper.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_native_connection_wrapper.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_native_resultset_wrapper.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_native_resultset_wrapper.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_native_statement_wrapper.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_native_statement_wrapper.obj)' or at 'C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\jdbc.pdb'; linking object as if no debug info
+  Events' Scheduler.vcxproj -> C:\Users\sheha\source\repos\Events' Scheduler\x64\Release\Events' Scheduler.exe
