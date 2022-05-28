@@ -10,13 +10,13 @@ Events::Events() {
 	this->reminder_time = 0;
 }
 
-Events::Events(string name, string place, double start_date, double end_date, double start_time, double reminder_time) {
+Events::Events(string name, string place, System::DateTime start_date, System::DateTime end_date, System::DateTime start_time, System::DateTime reminder_time) {
 	this->name = name;
 	this->place = place;
-	this->start_date = start_date;
-	this->end_date = end_date;
-	this->start_time = start_time;
-	this->reminder_time = reminder_time;
+	this->start_date = start_date.ToOADate();
+	this->end_date = end_date.ToOADate();
+	this->start_time = start_time.ToOADate();
+	this->reminder_time = reminder_time.ToOADate();
 }
 
 Events::~Events(void) {

@@ -1,4 +1,5 @@
 #include "MainForm.h"
+#include "Events.h"
 
 using namespace EventsScheduler;
 
@@ -67,7 +68,8 @@ void MainForm::done_events_panel_close() {
 }
 
 void MainForm::create_table(int panelNum, class Events event) {
-	System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
+	DateTime tempDate;
+	FlickerLessTable^ tableLayoutPanel1;
 	System::Windows::Forms::Label^ ename_label;
 	System::Windows::Forms::Label^ rtime_label;
 	System::Windows::Forms::Label^ sdate_label;
@@ -75,7 +77,7 @@ void MainForm::create_table(int panelNum, class Events event) {
 	System::Windows::Forms::Label^ stime_label;
 	System::Windows::Forms::Label^ place_label;
 
-	tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
+	tableLayoutPanel1 = (gcnew FlickerLessTable());
 	ename_label = (gcnew System::Windows::Forms::Label());
 	place_label = (gcnew System::Windows::Forms::Label());
 	stime_label = (gcnew System::Windows::Forms::Label());
@@ -140,7 +142,7 @@ void MainForm::create_table(int panelNum, class Events event) {
 	stime_label->Name = L"stime_label";
 	stime_label->Size = System::Drawing::Size(70, 16);
 	stime_label->TabIndex = 6;
-	stime_label->Text = L"Start Time : " + gcnew String(event.start_time.ToString());
+	stime_label->Text = L"Start Time : " + tempDate.FromOADate(event.start_time).ToShortTimeString();
 	// 
 	// rtime_label
 	// 
@@ -151,7 +153,7 @@ void MainForm::create_table(int panelNum, class Events event) {
 	rtime_label->Name = L"rtime_label";
 	rtime_label->Size = System::Drawing::Size(103, 16);
 	rtime_label->TabIndex = 2;
-	rtime_label->Text = L"Reminder Time : " + gcnew String(event.reminder_time.ToString());
+	rtime_label->Text = L"Reminder Time : " + tempDate.FromOADate(event.reminder_time).ToShortTimeString();
 	// 
 	// sdate_label
 	// 
@@ -162,7 +164,7 @@ void MainForm::create_table(int panelNum, class Events event) {
 	sdate_label->Name = L"sdate_label";
 	sdate_label->Size = System::Drawing::Size(67, 16);
 	sdate_label->TabIndex = 4;
-	sdate_label->Text = L"Start Date : " + gcnew String(event.start_date.ToString());
+	sdate_label->Text = L"Start Date : " + tempDate.FromOADate(event.start_date).ToShortDateString();
 	// 
 	// edate_label
 	// 
@@ -173,7 +175,7 @@ void MainForm::create_table(int panelNum, class Events event) {
 	edate_label->Name = L"edate_label";
 	edate_label->Size = System::Drawing::Size(63, 16);
 	edate_label->TabIndex = 3;
-	edate_label->Text = L"End Date : " + gcnew String(event.end_date.ToString());
+	edate_label->Text = L"End Date : " + tempDate.FromOADate(event.end_date).ToShortDateString();
 
 	ename_label->Parent = tableLayoutPanel1;
 	ename_label->BackColor = Color::Transparent;
@@ -203,26 +205,21 @@ void MainForm::create_table(int panelNum, class Events event) {
 
 void MainForm::load_my_events_flow_panel() {
 	if (sortedByDate) {
-		for (auto event : loggedInUser->userEventsByDate) {
-			create_table(0, event);
+		map<double, class Events>::iterator it;
+		for (it = loggedInUser->userEventsByDate.begin(); it != loggedInUser->userEventsByDate.end(); it++) {
+			create_table(0, it->second);
 		}
 	}
 	else if (sortedByTime) {
-		for (auto event : loggedInUser->userEventsByTime) {
-			create_table(0, event);
+		map<double, class Events>::iterator it;
+		for (it = loggedInUser->userEventsByTime.begin(); it != loggedInUser->userEventsByTime.end(); it++) {
+			create_table(0, it->second);
 		}
 	}
 }
 
 void MainForm::load_done_events_flow_panel() {
-	stack<class Events> temp;
-	while(!loggedInUser->doneEvents.empty()) {
-		create_table(1, loggedInUser->doneEvents.top());
-		temp.push(loggedInUser->doneEvents.top());
-		loggedInUser->doneEvents.pop();
-	}
-	while (!temp.empty()) {
-		loggedInUser->doneEvents.push(temp.top());
-		temp.pop();
+	for (int i = loggedInUser->doneEvents.size()-1; i >= 0; i--) {
+		create_table(1, loggedInUser->doneEvents[i]);
 	}
 }

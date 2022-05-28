@@ -20,12 +20,6 @@ dbConnection::dbConnection() {
 		MessageBox::Show("Could not connect to server.Error message : " + gcnew String(e.what())); //will be removed
 		fail = true;
 	}
-	if (con) {
-		cout << "Connection Successful!" << endl; //will be removed
-	}
-	else {
-		cout << "Connection Successful!" << endl; //will be removed
-	}
 }
 
 void dbConnection::dbUpdate(string query) {

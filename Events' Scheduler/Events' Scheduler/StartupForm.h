@@ -47,6 +47,7 @@ namespace EventsScheduler {
 
 
 
+
 	private: System::ComponentModel::IContainer^ components;
 
 	protected:
@@ -120,7 +121,6 @@ namespace EventsScheduler {
 	private:
 		void onStartupFrame(int imageNumber);
 		int imageCounter = 1;
-		String^ startupPath();
 	private: System::Void startup_timer_Tick(System::Object^ sender, System::EventArgs^ e) {
 		if (imageCounter <= 15) {
 			onStartupFrame(imageCounter);

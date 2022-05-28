@@ -13,7 +13,7 @@ class dbConnection
 {
 	const string server = "tcp://127.0.0.1:3306";
 	const string username = "root";
-	const string password = "root";
+	const string password = "root"; //F25092002@f
 
 	Driver* driver;
 	Connection* con;

@@ -17,6 +17,28 @@ namespace EventsScheduler {
 	/// <summary>
 	/// Summary for MainForm
 	/// </summary>
+	/// 
+	private ref class FlickerLessTable : public System::Windows::Forms::TableLayoutPanel
+	{
+	public: FlickerLessTable()
+	{
+		this->DoubleBuffered = true;
+	}
+	};
+	private ref class FlickerLessPanel : public System::Windows::Forms::Panel
+	{
+	public: FlickerLessPanel()
+	{
+		this->DoubleBuffered = true;
+	}
+	};
+	private ref class FlickerLessFlowPanel : public System::Windows::Forms::FlowLayoutPanel
+	{
+	public: FlickerLessFlowPanel()
+	{
+		this->DoubleBuffered = true;
+	}
+	};
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
 	public:
@@ -53,17 +75,17 @@ namespace EventsScheduler {
 
 
 
-	private: System::Windows::Forms::Label^ label3;
+
 	private: System::Windows::Forms::Timer^ events_panel_timer;
-	private: System::Windows::Forms::FlowLayoutPanel^ my_events_flow_panel;
+	private: FlickerLessFlowPanel^ my_events_flow_panel;
 
 
-	private: System::Windows::Forms::FlowLayoutPanel^ done_events_flow_panel;
+	private: FlickerLessFlowPanel^ done_events_flow_panel;
 
 
 	private: System::Windows::Forms::Timer^ my_events_panel_timer;
 	private: System::Windows::Forms::Timer^ done_events_panel_timer;
-	private: System::Windows::Forms::Panel^ buttons_panel;
+	private: FlickerLessPanel^ buttons_panel;
 	private: System::Windows::Forms::Button^ delete_button;
 	private: System::Windows::Forms::Button^ update_button;
 	private: System::Windows::Forms::Button^ add_event_button;
@@ -78,7 +100,7 @@ namespace EventsScheduler {
 	private: System::Windows::Forms::Button^ done_button;
 
 
-	private: System::Windows::Forms::Panel^ events_panel;
+	private: FlickerLessPanel^ events_panel;
 	public:
 
 	public:
@@ -104,7 +126,7 @@ namespace EventsScheduler {
 			delete loggedInUser;
 		}
 
-	private: System::Windows::Forms::Panel^ main_panel;
+	private: FlickerLessPanel^ main_panel;
 	protected:
 	private: System::Windows::Forms::PictureBox^ main_picture_box;
 
@@ -127,11 +149,11 @@ namespace EventsScheduler {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			this->main_panel = (gcnew System::Windows::Forms::Panel());
-			this->events_panel = (gcnew System::Windows::Forms::Panel());
-			this->done_events_flow_panel = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->my_events_flow_panel = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->buttons_panel = (gcnew System::Windows::Forms::Panel());
+			this->main_panel = (gcnew FlickerLessPanel());
+			this->events_panel = (gcnew FlickerLessPanel());
+			this->done_events_flow_panel = (gcnew FlickerLessFlowPanel());
+			this->my_events_flow_panel = (gcnew FlickerLessFlowPanel());
+			this->buttons_panel = (gcnew FlickerLessPanel());
 			this->done_button = (gcnew System::Windows::Forms::Button());
 			this->sort_by_menu_strip = (gcnew System::Windows::Forms::MenuStrip());
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -141,7 +163,6 @@ namespace EventsScheduler {
 			this->delete_button = (gcnew System::Windows::Forms::Button());
 			this->update_button = (gcnew System::Windows::Forms::Button());
 			this->add_event_button = (gcnew System::Windows::Forms::Button());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->done_events_button = (gcnew System::Windows::Forms::Button());
 			this->my_events_button = (gcnew System::Windows::Forms::Button());
 			this->home_button = (gcnew System::Windows::Forms::Button());
@@ -165,7 +186,6 @@ namespace EventsScheduler {
 			// main_panel
 			// 
 			this->main_panel->Controls->Add(this->events_panel);
-			this->main_panel->Controls->Add(this->label3);
 			this->main_panel->Controls->Add(this->done_events_button);
 			this->main_panel->Controls->Add(this->my_events_button);
 			this->main_panel->Controls->Add(this->home_button);
@@ -242,7 +262,7 @@ namespace EventsScheduler {
 			this->done_button->ForeColor = System::Drawing::Color::Aqua;
 			this->done_button->Location = System::Drawing::Point(207, 0);
 			this->done_button->Name = L"done_button";
-			this->done_button->Size = System::Drawing::Size(670, 27);
+			this->done_button->Size = System::Drawing::Size(734, 27);
 			this->done_button->TabIndex = 15;
 			this->done_button->Text = L"Done";
 			this->done_button->UseVisualStyleBackColor = true;
@@ -255,9 +275,9 @@ namespace EventsScheduler {
 			this->sort_by_menu_strip->Font = (gcnew System::Drawing::Font(L"Gadugi", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->sort_by_menu_strip->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripMenuItem1 });
-			this->sort_by_menu_strip->Location = System::Drawing::Point(877, 0);
+			this->sort_by_menu_strip->Location = System::Drawing::Point(941, 0);
 			this->sort_by_menu_strip->Name = L"sort_by_menu_strip";
-			this->sort_by_menu_strip->Size = System::Drawing::Size(126, 27);
+			this->sort_by_menu_strip->Size = System::Drawing::Size(62, 27);
 			this->sort_by_menu_strip->TabIndex = 14;
 			this->sort_by_menu_strip->Text = L"Sort by";
 			// 
@@ -269,14 +289,14 @@ namespace EventsScheduler {
 			});
 			this->toolStripMenuItem1->ForeColor = System::Drawing::Color::Aqua;
 			this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
-			this->toolStripMenuItem1->Size = System::Drawing::Size(113, 20);
+			this->toolStripMenuItem1->Size = System::Drawing::Size(49, 20);
 			this->toolStripMenuItem1->Text = L"Sort by";
 			// 
 			// startDateToolStripMenuItem
 			// 
 			this->startDateToolStripMenuItem->ForeColor = System::Drawing::Color::Aqua;
 			this->startDateToolStripMenuItem->Name = L"startDateToolStripMenuItem";
-			this->startDateToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->startDateToolStripMenuItem->Size = System::Drawing::Size(155, 22);
 			this->startDateToolStripMenuItem->Text = L"Start Date";
 			this->startDateToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::startDateToolStripMenuItem_Click);
 			// 
@@ -284,7 +304,7 @@ namespace EventsScheduler {
 			// 
 			this->reminderTimeToolStripMenuItem->ForeColor = System::Drawing::Color::Aqua;
 			this->reminderTimeToolStripMenuItem->Name = L"reminderTimeToolStripMenuItem";
-			this->reminderTimeToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->reminderTimeToolStripMenuItem->Size = System::Drawing::Size(155, 22);
 			this->reminderTimeToolStripMenuItem->Text = L"Reminder Time";
 			this->reminderTimeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::reminderTimeToolStripMenuItem_Click);
 			// 
@@ -365,16 +385,6 @@ namespace EventsScheduler {
 			this->add_event_button->Text = L"Add Event";
 			this->add_event_button->UseVisualStyleBackColor = true;
 			this->add_event_button->Click += gcnew System::EventHandler(this, &MainForm::add_event_button_Click);
-			// 
-			// label3
-			// 
-			this->label3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(68, 366);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(35, 13);
-			this->label3->TabIndex = 9;
-			this->label3->Text = L"label3";
 			// 
 			// done_events_button
 			// 
@@ -509,17 +519,17 @@ namespace EventsScheduler {
 			// 
 			// events_panel_timer
 			// 
-			this->events_panel_timer->Interval = 1;
+			this->events_panel_timer->Interval = 10;
 			this->events_panel_timer->Tick += gcnew System::EventHandler(this, &MainForm::events_panel_timer_Tick);
 			// 
 			// my_events_panel_timer
 			// 
-			this->my_events_panel_timer->Interval = 1;
+			this->my_events_panel_timer->Interval = 10;
 			this->my_events_panel_timer->Tick += gcnew System::EventHandler(this, &MainForm::my_events_panel_timer_Tick);
 			// 
 			// done_events_panel_timer
 			// 
-			this->done_events_panel_timer->Interval = 1;
+			this->done_events_panel_timer->Interval = 10;
 			this->done_events_panel_timer->Tick += gcnew System::EventHandler(this, &MainForm::done_events_panel_timer_Tick);
 			// 
 			// MainForm
@@ -551,14 +561,9 @@ namespace EventsScheduler {
 	private:
 		void logout_button_pressed();
 	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		//this->WindowState = FormWindowState::Maximized;
 
 		loggedInUser->loadData();
 		username_label->Text = gcnew String(loggedInUser->getUsername().c_str());
-		/*class Events x = class Events("ename", "eplace", 1, 2, 3, 4);
-		loggedInUser->userEventsByDate.insert(x);
-		loggedInUser->deleteEvent(x);
-		loggedInUser->saveData();*/
 
 		String^ folderPath = Application::StartupPath;
 		folderPath += "\\resources\\main\\";
@@ -567,11 +572,10 @@ namespace EventsScheduler {
 		main_picture_box->Image = Image::FromFile(folderPath + fileName);
 
 		fileName = "sidebar.png";
-		//pathString = System::IO::Path::Combine(folderPath, fileName);
 		sidebar_picture_box->Image = Image::FromFile(folderPath + fileName);
 
-		//fileName = "test1.png";
-		//events_panel->BackgroundImage = Image::FromFile(folderPath + fileName);
+		fileName = "test1.png";
+		events_panel->BackgroundImage = Image::FromFile(folderPath + fileName);
 
 		sidebar_picture_box->Parent = main_picture_box;
 		sidebar_picture_box->BackColor = Color::Transparent;
@@ -581,8 +585,8 @@ namespace EventsScheduler {
 		username_label->BackColor = Color::Transparent;
 		logout_button->Parent = sidebar_picture_box;
 		logout_button->BackColor = Color::Transparent;
-		//events_panel->Parent = main_picture_box;      //
-		//events_panel->BackColor = Color::Transparent; //
+		events_panel->Parent = main_picture_box; 
+		events_panel->BackColor = Color::Transparent;
 
 		sidebar_picture_box->Size = System::Drawing::Size(0.05 * main_picture_box->Width, main_picture_box->Height);
 		sidebar_picture_box->MaximumSize = System::Drawing::Size(0.15 * main_picture_box->Width, main_picture_box->Height);
@@ -667,9 +671,9 @@ namespace EventsScheduler {
 	private: System::Void sidebar_timer_Tick(System::Object^ sender, System::EventArgs^ e) {
 		if (sidebar_enter) {
 			if (sidebar_picture_box->Width < sidebar_picture_box->MaximumSize.Width) {
-				sidebar_picture_box->Width += 10;
+				sidebar_picture_box->Width += 40;
 				if (events_panel_enter && sidebar_picture_box->Width != sidebar_picture_box->MaximumSize.Width) {
-					events_panel->Width -= 10;
+					events_panel->Width -= 40;
 				}
 			}
 			else {
@@ -678,9 +682,9 @@ namespace EventsScheduler {
 		}
 		else {
 			if (sidebar_picture_box->Width > sidebar_picture_box->MinimumSize.Width) {
-				sidebar_picture_box->Width -= 10;
+				sidebar_picture_box->Width -= 40;
 				if (events_panel_enter) {
-					events_panel->Width += 10;
+					events_panel->Width += 40;
 				}
 			}
 			else {
@@ -691,7 +695,7 @@ namespace EventsScheduler {
 	private: System::Void events_panel_timer_Tick(System::Object^ sender, System::EventArgs^ e) {
 		if (events_panel_enter) {
 			if (events_panel->Width < main_picture_box->Width - sidebar_picture_box->Width) {
-				events_panel->Width += 20;
+				events_panel->Width += 40;
 			}
 			else {
 				events_panel_timer->Enabled = false;
@@ -699,7 +703,7 @@ namespace EventsScheduler {
 		}
 		else {
 			if (events_panel->Width > 0) {
-				events_panel->Width -= 20;
+				events_panel->Width -= 40;
 			}
 			else {
 				events_panel_timer->Enabled = false;
@@ -710,7 +714,7 @@ namespace EventsScheduler {
 		if (done_events_flow_panel->Height == 0) {
 			if (my_events_panel_enter) {
 				if (my_events_flow_panel->Height < main_picture_box->Height) {
-					my_events_flow_panel->Height += 20;
+					my_events_flow_panel->Height += 40;
 				}
 				else {
 					my_events_panel_timer->Enabled = false;
@@ -718,7 +722,7 @@ namespace EventsScheduler {
 			}
 			else {
 				if (my_events_flow_panel->Height > 0) {
-					my_events_flow_panel->Height -= 20;
+					my_events_flow_panel->Height -= 40;
 				}
 				else {
 					my_events_panel_timer->Enabled = false;
@@ -730,7 +734,7 @@ namespace EventsScheduler {
 		if (my_events_flow_panel->Height == 0) {
 			if (done_events_panel_enter) {
 				if (done_events_flow_panel->Height < main_picture_box->Height) {
-					done_events_flow_panel->Height += 20;
+					done_events_flow_panel->Height += 40;
 				}
 				else {
 					done_events_panel_timer->Enabled = false;
@@ -738,7 +742,7 @@ namespace EventsScheduler {
 			}
 			else {
 				if (done_events_flow_panel->Height > 0) {
-					done_events_flow_panel->Height -= 20;
+					done_events_flow_panel->Height -= 40;
 				}
 				else {
 					done_events_panel_timer->Enabled = false;
@@ -778,7 +782,6 @@ namespace EventsScheduler {
 		this->Close();
 	}
 	private: System::Void home_button_Click(System::Object^ sender, System::EventArgs^ e) {
-		label3->Text = "home";
 		events_panel_close();
 	}
 	private: System::Void my_events_button_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -828,22 +831,16 @@ namespace EventsScheduler {
 	private: System::Void table_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->ActiveControl = (TableLayoutPanel^)sender;
 		activeTable = (TableLayoutPanel^)sender;
-		label3->Text = (my_events_flow_panel->Controls->
-			GetChildIndex((TableLayoutPanel^)activeTable)).ToString();
 		((TableLayoutPanel^)sender)->ForeColor = Color::White;
 		update_button->Enabled = true;
 		delete_button->Enabled = true;
 		done_button->Enabled = true;
-
-		//Control^ c = ((TableLayoutPanel^)activeTable)->GetControlFromPosition(0, 0);  // Will Be Removed
-		//c->Text = "x";
 	}
 	
 	public: static class Events eventFromActiveTable() {
 		class Events event;
 		string name;
 		string place;
-		//bool done;
 		string start_date;
 		string end_date;
 		string start_time;
@@ -884,7 +881,24 @@ namespace EventsScheduler {
 				}
 			}
 		}
-		event = class Events(name, place, stod(start_date), stod(end_date), stod(start_time), stod(reminder_time));
+		DateTime s_date = DateTime::ParseExact(gcnew String(start_date.c_str()), "dd-MMM-yy", nullptr);
+		DateTime e_date = DateTime::ParseExact(gcnew String(end_date.c_str()), "dd-MMM-yy", nullptr);
+		String^ format;
+		if (start_time.size() == 8) {
+			format = "hh:mm tt";
+		}
+		else {
+			format = "h:mm tt";
+		}
+		DateTime s_time = DateTime::ParseExact(gcnew String(start_time.c_str()), format, nullptr);
+		if (reminder_time.size() == 8) {
+			format = "hh:mm tt";
+		}
+		else {
+			format = "h:mm tt";
+		}
+		DateTime r_time = DateTime::ParseExact(gcnew String(reminder_time.c_str()), format, nullptr);
+		event = class Events(name, place, s_date, e_date, s_time, r_time);
 		return event;
 	}
 	private: System::Void add_event_button_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -916,7 +930,7 @@ namespace EventsScheduler {
 	private: System::Void done_button_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (this->ActiveControl == activeTable) {
 			create_table(1, eventFromActiveTable()); // Add to done_events_flow_panel
-			loggedInUser->doneEvents.push(eventFromActiveTable()); // Add to Stack
+			loggedInUser->doneEvents.push_back(eventFromActiveTable()); // Add to Stack
 			//MessageBox::Show("done events count: " + done_events_flow_panel->Controls->Count);
 			my_events_flow_panel->Controls->RemoveAt(my_events_flow_panel->Controls->
 				GetChildIndex((TableLayoutPanel^)activeTable)); // Remove from my_events_flow_panel
@@ -941,10 +955,6 @@ namespace EventsScheduler {
 		sortedByDate = true;
 		reminderTimeToolStripMenuItem->Checked = false;
 		startDateToolStripMenuItem->Checked = true;
-		/*reminderTimeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Gadugi", 9, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Regular)),
-			System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-		startDateToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Gadugi", 9, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold)),
-			System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));*/
 		this->my_events_flow_panel->Controls->Clear();
 		load_my_events_flow_panel();
 	}
@@ -953,19 +963,8 @@ namespace EventsScheduler {
 		sortedByTime = true;
 		startDateToolStripMenuItem->Checked = false;
 		reminderTimeToolStripMenuItem->Checked = true;
-		/*reminderTimeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Gadugi", 9, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold)),
-			System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-		startDateToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Gadugi", 9, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Regular)),
-			System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));*/
 		this->my_events_flow_panel->Controls->Clear();
 		load_my_events_flow_panel();
 	}
 };
-	/*private ref class FlickerLessPanel : public System::Windows::Forms::Panel
-	{
-	public: FlickerLessPanel()
-	{
-		this->DoubleBuffered = true;
-	}
-	};*/
 }

@@ -462,9 +462,9 @@ namespace EventsScheduler {
 		String^ folderPath = Application::StartupPath;
 		folderPath += "\\resources\\login\\";
 		String^ fileName = "3.png";
-		String^ pathString = System::IO::Path::Combine(folderPath, fileName);
-		login_picture_box->Image = Image::FromFile(pathString);
-		register_picture_box->Image = Image::FromFile(pathString);
+		//String^ pathString = System::IO::Path::Combine(folderPath, fileName);
+		login_picture_box->Image = Image::FromFile(folderPath + fileName);
+		register_picture_box->Image = Image::FromFile(folderPath + fileName);
 
 		login_logo_label->Parent = login_picture_box;
 		login_logo_label->BackColor = Color::Transparent;

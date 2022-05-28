@@ -36,93 +36,81 @@ void User::signup() {
 	delete dbCon;
 }
 
-void User::loadData() {
+void User::loadData() { // db -> ds
 	dbConnection* dbCon = new dbConnection();
 	ResultSet* result = dbCon->dbRetrieve("SELECT * FROM events WHERE events.username = '" + username + "';");
 	while (result->next()) {
 		Events currentEvent(
 			result->getString(3), result->getString(4),
-			result->getDouble(5), result->getDouble(6), result->getDouble(7), result->getDouble(8));
+			DateTime::FromOADate(result->getDouble(5)), DateTime::FromOADate(result->getDouble(6)), 
+			DateTime::FromOADate(result->getDouble(7)), DateTime::FromOADate(result->getDouble(8)));
 		currentEvent.done = result->getBoolean(2);
 		if (currentEvent.done) {
-			doneEvents.push(currentEvent);
+			doneEvents.push_back(currentEvent);
 		}
 		else {
-			userEventsByDate.insert(currentEvent);
-			userEventsByTime.insert(currentEvent);
+			DateTime currentDate = DateTime::Now; // expired events
+			if (currentEvent.end_date >= currentDate.ToOADate()) {
+				pair<double, Events> p1(currentEvent.start_date, currentEvent);
+				pair<double, Events> p2(currentEvent.reminder_time, currentEvent);
+				userEventsByDate.insert(p1);
+				userEventsByTime.insert(p2);
+			}
 		}
 		nEvents++;
 	}
-
-	/*for (auto x: userEventsByTime) {
-		MessageBox::Show(x.reminder_time.ToString());
-	}*/
-
 	delete dbCon;
 	delete result;
 }
 
-void User::saveData() {
+void User::saveData() { // delete db -> ds -> db
 	dbConnection* dbCon = new dbConnection();
 	dbCon->dbUpdate("DELETE FROM events WHERE events.username = '" + username + "';");
-	set<Events, date_comparator>::iterator it;
+	map<double, class Events>::iterator it;
 	for (it = userEventsByDate.begin(); it != userEventsByDate.end(); it++) {
 		dbCon->dbUpdate("INSERT INTO events(username, done, name, place, start_date, end_date, start_time, reminder_time) VALUES('" + username
-			+ "', " + to_string(it->done) + ", '" + it->name + "', '" + it->place + "', '" + to_string(it->start_date)
-			+ "', '" + to_string(it->end_date) + "', '" + to_string(it->start_time) + "', '" + to_string(it->reminder_time) + "');");
+			+ "', " + to_string(it->second.done) + ", '" + it->second.name + "', '" + it->second.place + "', '" + to_string(it->second.start_date)
+			+ "', '" + to_string(it->second.end_date) + "', '" + to_string(it->second.start_time) + "', '" + to_string(it->second.reminder_time) + "');");
 	}
-	stack<class Events> temp;
-	while (!doneEvents.empty()) {
-		doneEvents.top().done = true;
+	for (int i = 0; i < doneEvents.size(); i++) {
+		doneEvents[i].done = true;
 		dbCon->dbUpdate("INSERT INTO events(username, done, name, place, start_date, end_date, start_time, reminder_time) VALUES('" + username
-			+ "', " + to_string(doneEvents.top().done) + ", '" + doneEvents.top().name + "', '" + doneEvents.top().place + "', '" + to_string(doneEvents.top().start_date)
-			+ "', '" + to_string(doneEvents.top().end_date) + "', '" + to_string(doneEvents.top().start_time) + "', '" + to_string(doneEvents.top().reminder_time) + "');");
-		temp.push(doneEvents.top());
-		doneEvents.pop();
-	}
-	while (!temp.empty()) {
-		doneEvents.push(temp.top());
-		temp.pop();
+			+ "', " + to_string(doneEvents[i].done) + ", '" + doneEvents[i].name + "', '" + doneEvents[i].place + "', '" + to_string(doneEvents[i].start_date)
+			+ "', '" + to_string(doneEvents[i].end_date) + "', '" + to_string(doneEvents[i].start_time) + "', '" + to_string(doneEvents[i].reminder_time) + "');");
 	}
 	delete dbCon;
 }
 
 void User::addEvent(Events event) {
-	/*time_t now = time(0);
-	if (event.start_date < ) {
-		MessageBox::Show("Please enter a valid date!");
+	bool fail = false;
+	map<double, class Events>::iterator it;
+	for (it = userEventsByDate.begin(); it != userEventsByDate.end(); it++) {
+		if ((event.start_date >= it->second.start_date && event.start_date <= it->second.end_date) 
+			|| (event.end_date <= it->second.end_date && event.end_date >= it->second.start_date)) {
+			MessageBox::Show("An event already exists at that date");
+			fail = true;
+			break;
+		}
 	}
-	else if (userEventsByDate.find(event) == userEventsByDate.end()) {
-		userEventsByDate.insert(event);
-		userEventsByTime.insert(event);
+	if (!fail) {
+		pair<double, Events> p1(event.start_date, event);
+		pair<double, Events> p2(event.reminder_time, event);
+		userEventsByDate.insert(p1);
+		userEventsByTime.insert(p2);
 		nEvents++;
-	}*/
-	addEventFailed = false;
-	int countBefore = userEventsByDate.size();
-	userEventsByDate.insert(event); //
-	userEventsByTime.insert(event); //
-	int countAfter = userEventsByDate.size();
-	if (countBefore == countAfter) {
-		addEventFailed = true;
-	}
-	else {
-		nEvents++; //
+		MessageBox::Show("Your events count is " + nEvents);
 	}
 }
 
 void User::deleteEvent(Events event) {
-	userEventsByDate.erase(event);
-	userEventsByTime.erase(event);
+	userEventsByDate.erase(event.start_date);
+	userEventsByTime.erase(event.reminder_time);
 	nEvents--;
 }
 
 void User::updateEvent(Events oldEvent, Events newEvent) {
-	if (userEventsByDate.find(oldEvent) != userEventsByDate.end()) {
-		userEventsByDate.erase(oldEvent);
-		userEventsByTime.erase(oldEvent);
-		addEvent(newEvent); // to check the conditions in addEvent()
-		//userEventsByDate.insert(newEvent);
-		//userEventsByTime.insert(newEvent);
+	if (userEventsByDate.find(oldEvent.start_date) != userEventsByDate.end()) {
+		userEventsByDate[oldEvent.start_date] = newEvent;
 	}
 }
 
