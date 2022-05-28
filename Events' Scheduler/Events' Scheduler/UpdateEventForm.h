@@ -205,6 +205,7 @@ namespace EventsScheduler {
 			this->end_month_calendar->ShowTodayCircle = false;
 			this->end_month_calendar->TabIndex = 19;
 			this->end_month_calendar->Visible = false;
+			this->end_month_calendar->DateSelected += gcnew System::Windows::Forms::DateRangeEventHandler(this, &UpdateEventForm::end_month_calendar_DateSelected);
 			// 
 			// start_month_calendar
 			// 
@@ -214,6 +215,7 @@ namespace EventsScheduler {
 			this->start_month_calendar->ShowTodayCircle = false;
 			this->start_month_calendar->TabIndex = 18;
 			this->start_month_calendar->Visible = false;
+			this->start_month_calendar->DateSelected += gcnew System::Windows::Forms::DateRangeEventHandler(this, &UpdateEventForm::start_month_calendar_DateSelected);
 			// 
 			// stime_dp_combo_box
 			// 
@@ -401,6 +403,7 @@ namespace EventsScheduler {
 			this->sdate_text_box->Name = L"sdate_text_box";
 			this->sdate_text_box->Size = System::Drawing::Size(131, 22);
 			this->sdate_text_box->TabIndex = 10;
+			this->sdate_text_box->Click += gcnew System::EventHandler(this, &UpdateEventForm::sdate_text_box_Click);
 			// 
 			// ename_text_box
 			// 
@@ -408,6 +411,7 @@ namespace EventsScheduler {
 			this->ename_text_box->Name = L"ename_text_box";
 			this->ename_text_box->Size = System::Drawing::Size(131, 22);
 			this->ename_text_box->TabIndex = 6;
+			this->edate_text_box->Click += gcnew System::EventHandler(this, &UpdateEventForm::edate_text_box_Click);
 			// 
 			// place_label
 			// 
@@ -604,7 +608,7 @@ namespace EventsScheduler {
 		this->ActiveControl = start_month_calendar;
 		start_month_calendar->Visible = false;
 		DateTime dateTime = DateTime::Now;
-		if (start_month_calendar->SelectionStart.Day < dateTime.Day) {
+		if (start_month_calendar->SelectionStart.ToOADate() < dateTime.ToOADate()) {
 			MessageBox::Show("Invalid Date!");
 		}
 		else {
@@ -618,7 +622,7 @@ namespace EventsScheduler {
 		this->ActiveControl = end_month_calendar;
 		end_month_calendar->Visible = false;
 		DateTime dateTime = DateTime::Now;
-		if (end_month_calendar->SelectionStart.Day < dateTime.Day) {
+		if (end_month_calendar->SelectionStart.ToOADate() < dateTime.ToOADate()) {
 			MessageBox::Show("Invalid Date!");
 		}
 		else {

@@ -610,7 +610,7 @@ namespace EventsScheduler {
 		this->ActiveControl = start_month_calendar;
 		start_month_calendar->Visible = false;
 		DateTime dateTime = DateTime::Now;
-		if (start_month_calendar->SelectionStart.Day < dateTime.Day) {
+		if (start_month_calendar->SelectionStart.ToOADate() < dateTime.ToOADate()) {
 			MessageBox::Show("Invalid Date!");
 		}
 		else {
@@ -624,7 +624,7 @@ namespace EventsScheduler {
 		this->ActiveControl = end_month_calendar;
 		end_month_calendar->Visible = false;
 		DateTime dateTime = DateTime::Now;
-		if (end_month_calendar->SelectionStart.Day < dateTime.Day) {
+		if (end_month_calendar->SelectionStart.ToOADate() < dateTime.ToOADate()) {
 			MessageBox::Show("Invalid Date!");
 		}
 		else {

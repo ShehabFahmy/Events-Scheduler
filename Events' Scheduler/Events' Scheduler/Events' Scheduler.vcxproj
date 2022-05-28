@@ -161,6 +161,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StartupForm.resx">
+      <DependentUpon>StartupForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateEventForm.resx">
       <DependentUpon>UpdateEventForm.h</DependentUpon>
     </EmbeddedResource>
