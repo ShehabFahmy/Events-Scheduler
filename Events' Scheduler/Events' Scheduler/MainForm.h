@@ -514,22 +514,22 @@ namespace EventsScheduler {
 			// 
 			// sidebar_timer
 			// 
-			this->sidebar_timer->Interval = 20;
+			this->sidebar_timer->Interval = 5;
 			this->sidebar_timer->Tick += gcnew System::EventHandler(this, &MainForm::sidebar_timer_Tick);
 			// 
 			// events_panel_timer
 			// 
-			this->events_panel_timer->Interval = 10;
+			this->events_panel_timer->Interval = 1;
 			this->events_panel_timer->Tick += gcnew System::EventHandler(this, &MainForm::events_panel_timer_Tick);
 			// 
 			// my_events_panel_timer
 			// 
-			this->my_events_panel_timer->Interval = 10;
+			this->my_events_panel_timer->Interval = 1;
 			this->my_events_panel_timer->Tick += gcnew System::EventHandler(this, &MainForm::my_events_panel_timer_Tick);
 			// 
 			// done_events_panel_timer
 			// 
-			this->done_events_panel_timer->Interval = 10;
+			this->done_events_panel_timer->Interval = 1;
 			this->done_events_panel_timer->Tick += gcnew System::EventHandler(this, &MainForm::done_events_panel_timer_Tick);
 			// 
 			// MainForm
@@ -671,9 +671,9 @@ namespace EventsScheduler {
 	private: System::Void sidebar_timer_Tick(System::Object^ sender, System::EventArgs^ e) {
 		if (sidebar_enter) {
 			if (sidebar_picture_box->Width < sidebar_picture_box->MaximumSize.Width) {
-				sidebar_picture_box->Width += 40;
+				sidebar_picture_box->Width += 30;
 				if (events_panel_enter && sidebar_picture_box->Width != sidebar_picture_box->MaximumSize.Width) {
-					events_panel->Width -= 40;
+					events_panel->Width -= 30;
 				}
 			}
 			else {
@@ -682,9 +682,9 @@ namespace EventsScheduler {
 		}
 		else {
 			if (sidebar_picture_box->Width > sidebar_picture_box->MinimumSize.Width) {
-				sidebar_picture_box->Width -= 40;
+				sidebar_picture_box->Width -= 30;
 				if (events_panel_enter) {
-					events_panel->Width += 40;
+					events_panel->Width += 30;
 				}
 			}
 			else {
@@ -695,7 +695,7 @@ namespace EventsScheduler {
 	private: System::Void events_panel_timer_Tick(System::Object^ sender, System::EventArgs^ e) {
 		if (events_panel_enter) {
 			if (events_panel->Width < main_picture_box->Width - sidebar_picture_box->Width) {
-				events_panel->Width += 40;
+				events_panel->Width += 35;
 			}
 			else {
 				events_panel_timer->Enabled = false;
@@ -703,7 +703,7 @@ namespace EventsScheduler {
 		}
 		else {
 			if (events_panel->Width > 0) {
-				events_panel->Width -= 40;
+				events_panel->Width -= 35;
 			}
 			else {
 				events_panel_timer->Enabled = false;
@@ -714,7 +714,7 @@ namespace EventsScheduler {
 		if (done_events_flow_panel->Height == 0) {
 			if (my_events_panel_enter) {
 				if (my_events_flow_panel->Height < main_picture_box->Height) {
-					my_events_flow_panel->Height += 40;
+					my_events_flow_panel->Height += 35;
 				}
 				else {
 					my_events_panel_timer->Enabled = false;
@@ -722,7 +722,7 @@ namespace EventsScheduler {
 			}
 			else {
 				if (my_events_flow_panel->Height > 0) {
-					my_events_flow_panel->Height -= 40;
+					my_events_flow_panel->Height -= 35;
 				}
 				else {
 					my_events_panel_timer->Enabled = false;
@@ -734,7 +734,7 @@ namespace EventsScheduler {
 		if (my_events_flow_panel->Height == 0) {
 			if (done_events_panel_enter) {
 				if (done_events_flow_panel->Height < main_picture_box->Height) {
-					done_events_flow_panel->Height += 40;
+					done_events_flow_panel->Height += 35;
 				}
 				else {
 					done_events_panel_timer->Enabled = false;
@@ -742,7 +742,7 @@ namespace EventsScheduler {
 			}
 			else {
 				if (done_events_flow_panel->Height > 0) {
-					done_events_flow_panel->Height -= 40;
+					done_events_flow_panel->Height -= 35;
 				}
 				else {
 					done_events_panel_timer->Enabled = false;

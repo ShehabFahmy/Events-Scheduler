@@ -25,7 +25,6 @@ class User
 {
 	string username;
 	string password;
-	int nEvents;
 
 public:
 	map<double, Events> userEventsByDate;

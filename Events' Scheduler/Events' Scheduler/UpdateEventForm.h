@@ -515,7 +515,6 @@ namespace EventsScheduler {
 		}
 #pragma endregion
 		private: System::Void UpdateEventForm_Load(System::Object^ sender, System::EventArgs^ e) {
-			class Events test = *oldEvent;
 			ename_text_box->Text = gcnew String(oldEvent->name.c_str());
 			place_text_box->Text = gcnew String(oldEvent->place.c_str());
 			sdate_text_box->Text = DateTime::FromOADate(oldEvent->start_date).ToShortDateString();

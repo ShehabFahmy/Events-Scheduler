@@ -11,7 +11,6 @@ using namespace System::Drawing;
 User::User(string user, string pass) {
 	username = user;
 	password = pass;
-	nEvents = 0;
 	loggedIn = false;
 	signedUp = false;
 	addEventFailed = false;
@@ -57,7 +56,6 @@ void User::loadData() { // db -> ds
 				userEventsByTime.insert(p2);
 			}
 		}
-		nEvents++;
 	}
 	delete dbCon;
 	delete result;
@@ -97,20 +95,19 @@ void User::addEvent(Events event) {
 		pair<double, Events> p2(event.reminder_time, event);
 		userEventsByDate.insert(p1);
 		userEventsByTime.insert(p2);
-		nEvents++;
-		MessageBox::Show("Your events count is " + nEvents);
 	}
 }
 
 void User::deleteEvent(Events event) {
 	userEventsByDate.erase(event.start_date);
 	userEventsByTime.erase(event.reminder_time);
-	nEvents--;
 }
 
 void User::updateEvent(Events oldEvent, Events newEvent) {
 	if (userEventsByDate.find(oldEvent.start_date) != userEventsByDate.end()) {
-		userEventsByDate[oldEvent.start_date] = newEvent;
+		userEventsByDate.erase(oldEvent.start_date);
+		userEventsByTime.erase(oldEvent.reminder_time);
+		addEvent(newEvent);
 	}
 }
 
